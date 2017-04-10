@@ -2,10 +2,11 @@ var i = 0;
 var delay = 0;
 var counter = 0;
 var resultYouWant = 107;
+var keyupKeycode = 32;
 
 var inputField = $('#inputfield');
 var keyup = jQuery.Event('keyup');
-keyup.which = 32;
+keyup.which = keyupKeycode;
 
 function typeWordAndNext(word) {
     var chars = word.split('');
