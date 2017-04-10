@@ -8,5 +8,5 @@ I am not really a Javascript professional, but I can have fun with it, moreover,
 1. Modify the variable `resultYouWant` typing your desired result;
 2. Copy the whole code;
 3. Open the `Developer Tools` in Chrome by pressing `CTRL + Shift + J`;
-4. Paste it in the *console*
+4. Paste it in the `console`
 5. Press `ENTER` and enjoy your result in total lazyness.
