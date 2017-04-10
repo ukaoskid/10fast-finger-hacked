@@ -26,6 +26,10 @@ function typeWordAndNext(word) {
     }, 30);
 }
 
+function getDelay() {
+    return Math.ceil((59 / counter) * 1000);
+}
+
 function writeForMePlease() {
 
     var totalKeystrokes = 0;
@@ -42,7 +46,7 @@ function writeForMePlease() {
     }
 
     // Delay calculation.
-    delay = Math.ceil((59 / counter) * 1000);
+    delay = getDelay();
     emulator();
 }
 
