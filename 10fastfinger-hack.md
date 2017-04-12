@@ -27,7 +27,7 @@ window.addEventListener('keyup', function(event){
 
 If we press the spacebar, the script above will make the console log a `KeyboardEvent`. Dig into its properties to find the `keyCode` we need.
 
-![KeyboardEvent](https://raw.githubusercontent.com/alesmit/alesmit.github.io/master/demo/10fast-finger-hacked/screenshot1.png)
+![KeyboardEvent](https://raw.githubusercontent.com/ukaoskid/ukaoskid.github.io/master/demo/10fast-finger-hacked/screenshot1.png)
 
 Each time we finish to write the right word we would call the `.trigger()` method on the input field, passing a [jQuery.Event](http://api.jquery.com/category/events/event-object/) of type `keyup` (which is very similar to the native DOM Event).
 We store it once to avoid re-create an instance of it inside of each function call:
