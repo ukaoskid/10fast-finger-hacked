@@ -4,6 +4,8 @@
 
 I am not really a Javascript professional, but I can have fun with it, moreover, if this time I can get the help of my dear friend and "code-pal" Alessandro Mitelli (https://github.com/alesmit). He hacked for first this cute game.
 
+![10FastFingers Hack demo](https://raw.githubusercontent.com/ukaoskid/ukaoskid.github.io/master/demo/10fast-finger-hacked/10fastdemo.gif)
+
 ### Instruction for use
 
 1. Modify the variable `resultYouWant` typing your desired result;

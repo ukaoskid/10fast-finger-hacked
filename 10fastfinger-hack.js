@@ -1,68 +1,81 @@
-var i = 0;
-var delay = 0;
-var counter = 0;
-var resultYouWant = 107;
-var keyupKeycode = 32;
+(function (window, $) {
 
-var inputField = $('#inputfield');
-var keyup = jQuery.Event('keyup');
-keyup.which = keyupKeycode;
+    // globals
 
-function typeWordAndNext(word) {
-    var chars = word.split('');
-    var interval = setInterval(function() {
+    var i = 0;
+    var delay = 0;
+    var counter = 0;
 
-        if (!chars.length) {
+    // desired result
+    var resultYouWant = 107;
 
-            clearInterval(interval);
-            inputField.trigger(keyup);
+    var inputField = $('#inputfield');
 
-        } else {
+    // jQuery key up event
+    var keyup = jQuery.Event('keyup');
+    keyup.which = 32;
 
-            var char = chars.shift();
-            inputField.val(inputField.val() + char);
+    // functions definition
 
-        }
+    function typeWordAndNext(word) {
+        var chars = word.split('');
+        var interval = setInterval(function() {
 
-    }, 30);
-}
+            if (chars.length) {
 
-function getDelay() {
-    return Math.ceil((59 / counter) * 1000);
-}
+                var char = chars.shift();
+                inputField.val(inputField.val() + char);
 
-function writeForMePlease() {
+            } else {
 
-    var totalKeystrokes = 0;
+                clearInterval(interval);
+                inputField.trigger(keyup);
 
-    for (counter = 0; counter < words.length; counter++) {
+            }
 
-        // 1 WPM = 5 Keystrokes.
-        if (totalKeystrokes / 5 >= resultYouWant) {
-            break;
-        }
-
-        // Running total for keystrokes and adding space to calculation.
-        totalKeystrokes = (totalKeystrokes + words[counter].length) + 1;
+        }, 30);
     }
 
-    // Delay calculation.
-    delay = getDelay();
-    emulator();
-}
-
-function emulator() {
-
-    if (i < counter) {
-
-        // Emulation.
-        inputField.focus();
-
-        typeWordAndNext(words[i]);
-        i++;
-
-        setTimeout(emulator, delay);
+    function getDelay() {
+        return Math.ceil((59 / counter) * 1000);
     }
-}
 
-writeForMePlease();
+    function writeForMePlease() {
+
+        var totalKeystrokes = 0;
+
+        for (counter = 0; counter < window.words.length; counter++) {
+
+            // 1 WPM = 5 Keystrokes.
+            if (totalKeystrokes / 5 >= resultYouWant) {
+                break;
+            }
+
+            // Running total for keystrokes and adding space to calculation.
+            totalKeystrokes = (totalKeystrokes + window.words[counter].length) + 1;
+        }
+
+        // Delay calculation.
+        delay = getDelay();
+        emulator();
+    }
+
+    function emulator() {
+
+        if (i < counter) {
+
+            // Emulation.
+            inputField.focus();
+
+            typeWordAndNext(window.words[i]);
+            i++;
+
+            setTimeout(emulator, delay);
+        }
+    }
+
+    // exec
+
+    writeForMePlease();
+
+})(window, jQuery);
