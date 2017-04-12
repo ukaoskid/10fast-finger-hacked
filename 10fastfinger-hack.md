@@ -38,15 +38,21 @@ keyup.which = 32;
 ```
 
 ### Get the right word
-Since the words array is accessible in the global scope we can access it by referencing to `window.words`.
-...
+Since the `words` array is accessible in the global scope we can access it by referencing to `window.words`.
+The array in object is containing all the words you are supposed to write during the run you are performing. It is used to forecast the words you should "type" to get the result wanted.
 
 ### Delay calculation
-...
+The delay is the exact time, in milliseconds, that has to pass between a word and another one. It is calculated starting from the expected words (`counter` variable) needed to reach the result you set. A run has a standard time of 60 seconds, then the delay is calculated for 59, in this way the last "typed" word will be always on time.
+
+```javascript
+function getDelay() {
+    return Math.ceil((59 / counter) * 1000);
+}
+```
 
 ### Simulate the user typing
 Once we have the word to type, we would simulate each letter typing in the game input field.
-To achieve this we'll use `setInterval`, which executes the function passed as the first argument every N milliseconds, passed as the second argument.
+To get this done we'll use `setInterval`, which executes the function passed as the first argument every N milliseconds, passed as the second argument.
 
 ```javascript
 function typeWordAndNext(word) {
