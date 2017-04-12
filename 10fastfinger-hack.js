@@ -46,16 +46,16 @@
 
         for (counter = 0; counter < window.words.length; counter++) {
 
-            // 1 WPM = 5 Keystrokes.
+            // 1 WPM = 5 Keystrokes
             if (totalKeystrokes / 5 >= resultYouWant) {
                 break;
             }
 
-            // Running total for keystrokes and adding space to calculation.
+            // running total for keystrokes and adding space to calculation
             totalKeystrokes = (totalKeystrokes + window.words[counter].length) + 1;
         }
 
-        // Delay calculation.
+        // delay calculation
         delay = getDelay();
         emulator();
     }
@@ -64,7 +64,7 @@
 
         if (i < counter) {
 
-            // Emulation.
+            // emulation
             inputField.focus();
 
             typeWordAndNext(window.words[i]);
